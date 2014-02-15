@@ -1,11 +1,13 @@
 <?php
 /**
- * Auto Synchronization for OpenSRS Pro Registrar Module for WHMCS.
  *
- * @author     Fedor Vyushkov
- * @website    http://abcit.ru
- * @copyright  (c) Fedor Vyushkov
+ * Synchronization for mod_opensrs table for WHMCS.
+ *
+ * @author     Frantzcy Paisible
+ * @website    http://www.frantzcy.com
+ * @copyright  (c) Frantzcy Paisible
  * @license    The MIT License (MIT)
+ * forked from : https://github.com/littfed/OpenSRS-Pro-Autosynch
  */
 
 include(dirname(__FILE__).'/../../../dbconnect.php');

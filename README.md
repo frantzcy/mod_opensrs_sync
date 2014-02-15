@@ -1,11 +1,14 @@
 OpenSRS Pro Autosynch
 =====================
 
-Auto Synchronization for OpenSRS Pro Registrar Module for WHMCS.
+Synchronization of mod_opensrs for WHMCS.
 
 Install
 -------
 
-* Copy opensrsprosync.php to "modules/registrars/opensrspro/" folder.
-* To check, you can use http://MY-WHMCS/modules/registrars/opensrspro/opensrsprosync.php in your browser.
-* To automatical run you can setup CRON.
+* Backup you db_whmcs
+* This script is ment to run via cron or manually.
+* Copy mod_opensrs_sync.php to a non public_html directory.
+* Copy and edit config.sample.php to config.php
+* Edit config.php to connect to your db_whmcs
+* run php mod_opensrs_sync.php
