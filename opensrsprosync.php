@@ -6,7 +6,12 @@
  * @website    http://abcit.ru
  * @copyright  (c) Fedor Vyushkov
  * @license    The MIT License (MIT)
+ *
+ * Hacket hack
+ * 		- disabled $cookie !== false || $cookieBypass
+ *		- Make sure permision does not allow runnint from web
  */
+
 
 include(dirname(__FILE__).'/../../../dbconnect.php');
 include(dirname(__FILE__).'/../../../includes/functions.php');
@@ -14,6 +19,7 @@ include(dirname(__FILE__).'/../../../includes/registrarfunctions.php');
 include(dirname(__FILE__).'/opensrspro.php');
 
 $params=getRegistrarConfigOptions("opensrspro");
+$hashKey = $params["HashKey"];
 
 $cronreport = "OpenSRSPro Domain Sync Report<br>\n---------------------------------------------------<br>\n";
 
@@ -21,8 +27,6 @@ $queryresult=select_query("tbldomains","id,domain","registrar='opensrspro'  AND 
 
 while ($data=mysql_fetch_array($queryresult)) {
 
-
-        $hashKey = $params["HashKey"];
         $ex_domain = explode('.', $data['domain']);
 	$tld = $ex_domain[1];
 	$sld = $ex_domain[0];
@@ -84,7 +88,8 @@ function getFullDomainInfo($domain, $domainUser, $domainPass, $params){
         else
             $cookie = false;
 
-    if($cookie !== false || $cookieBypass){
+#    if($cookie !== false || $cookieBypass){
+    if(1) {
 
         $expirationCall = array(
             'func' => 'lookupGetDomain',
@@ -95,7 +100,8 @@ function getFullDomainInfo($domain, $domainUser, $domainPass, $params){
             'connect' =>generateConnectData($params)
         );
 
-        if($cookieBypass)
+#        if($cookieBypass)
+        if(1)
                 $expirationCall['data']['bypass'] = $domain;
             else
                 $expirationCall['data']['cookie'] = $cookie;
@@ -112,7 +118,6 @@ function getFullDomainInfo($domain, $domainUser, $domainPass, $params){
             $osrsLogError .= $expiryReturn->resultFullRaw["response_text"] . "\n";
         }
     }
-
     return $all_info;
 }
 
